@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ubiratan Martins Junior — Gerente de Performance &amp; CRM</title>
+<meta name="description" content="Ubiratan (Bira) Martins Junior — Gerente de Performance e CRM na indústria. Branding, Inbound, Mídia paga, CRM e criação de conteúdo UGC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --magenta:#E6007E; --pink:#FF3FA4; --purple:#7B2FF7; --violet:#B15CFF;
+  --blue:#0A66C2; --cyan:#22D3EE;
+  --ink:#0B0810; --ink-2:#150F1E;
+  --card:rgba(255,255,255,.045); --line:rgba(255,255,255,.10);
+  --text:#F4F0F7; --muted:#A99FB8;
+  --grad:linear-gradient(100deg,var(--magenta),var(--violet) 55%,var(--cyan));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1140px,92vw);margin:0 auto}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+#bg-canvas{position:fixed;inset:0;z-index:0;opacity:.55}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);z-index:0;pointer-events:none;opacity:.45}
+.glow.a{width:520px;height:520px;background:var(--magenta);top:-160px;left:-120px}
+.glow.b{width:460px;height:460px;background:var(--purple);top:40%;right:-160px}
+.glow.c{width:420px;height:420px;background:var(--blue);bottom:-180px;left:30%}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='.6'/></svg>")}
+main,header,footer{position:relative;z-index:2}
+
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:60}
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:6px;
+  padding:8px 10px;border-radius:999px;background:rgba(15,10,22,.62);backdrop-filter:blur(14px);
+  border:1px solid var(--line);box-shadow:0 10px 40px rgba(0,0,0,.45);max-width:94vw}
+nav .brand{font-family:'Sora';font-weight:800;font-size:14px;padding:0 12px 0 8px;white-space:nowrap}
+nav .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav a.nl{font-size:13.5px;color:var(--muted);padding:8px 12px;border-radius:999px;transition:.25s;white-space:nowrap}
+nav a.nl:hover,nav a.nl.active{color:#fff;background:rgba(255,255,255,.09)}
+.nav-links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.tagpill{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;background:rgba(230,0,126,.10)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 0 rgba(255,63,164,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(255,63,164,0)}100%{box-shadow:0 0 0 0 rgba(255,63,164,0)}}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem);font-weight:800;margin:22px 0 14px}
+.hero .role{font-size:clamp(1.05rem,2.3vw,1.5rem);font-weight:600;font-family:'Sora'}
+.hero p.lead{color:var(--muted);font-size:1.06rem;max-width:60ch;margin:18px 0 30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.3s;border:1px solid transparent}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 12px 34px rgba(230,0,126,.32)}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(230,0,126,.45)}
+.btn.ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.04)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+
+/* ---- foto ---- */
+.portrait{position:relative;aspect-ratio:1;border-radius:28px;overflow:hidden;
+  background:conic-gradient(from 210deg,var(--magenta),var(--purple),var(--blue),var(--cyan),var(--magenta));
+  padding:3px;animation:spinbg 14s linear infinite;box-shadow:0 26px 70px rgba(230,0,126,.28)}
+@keyframes spinbg{to{filter:hue-rotate(360deg)}}
+.portrait .inner{width:100%;height:100%;border-radius:25px;background:var(--ink-2);overflow:hidden;position:relative;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.03)}
+.portrait .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--ink-2)}
+.portrait .initials{font-family:'Sora';font-weight:800;font-size:clamp(3rem,7vw,5rem)}
+.portrait .sub{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 12px}
+.portrait .badge{position:absolute;left:14px;bottom:14px;z-index:3;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 13px;border-radius:999px;background:rgba(11,8,16,.72);backdrop-filter:blur(8px);border:1px solid var(--line)}
+
+.marquee{margin-top:54px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee .track{display:flex;gap:44px;width:max-content;animation:slide 26s linear infinite}
+.marquee span{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.marquee span b{color:var(--pink)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:96px 0}
+.sec-head{margin-bottom:46px;max-width:72ch}
+.eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);font-weight:700}
+.sec-head h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:800;margin:12px 0 12px}
+.sec-head p{color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px 22px;transition:.35s}
+.stat:hover{transform:translateY(-6px);border-color:rgba(255,63,164,.45);background:rgba(230,0,126,.07)}
+.stat .n{font-family:'Sora';font-weight:800;font-size:2.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .l{font-size:.86rem;color:var(--muted);margin-top:4px}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;transition:.35s}
+.card:hover{border-color:rgba(177,92,255,.45);transform:translateY(-4px)}
+.card h3{font-size:1.2rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.96rem}
+.card .ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;margin-bottom:16px;
+  background:linear-gradient(135deg,rgba(230,0,126,.25),rgba(123,47,247,.25));border:1px solid var(--line);font-size:20px}
+
+/* timeline — só empresas */
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--magenta),var(--purple),transparent)}
+.tl-item{position:relative;padding:0 0 40px 22px}
+.tl-item::before{content:'';position:absolute;left:-30px;top:8px;width:16px;height:16px;border-radius:50%;
+  background:var(--ink);border:3px solid var(--pink);box-shadow:0 0 0 4px rgba(230,0,126,.13)}
+.tl-item.now::before{background:var(--pink);animation:pulse 2s infinite}
+.tl-item .when{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pink);font-weight:700}
+.tl-item h3{font-size:1.45rem;margin:6px 0 4px;font-weight:800}
+.tl-item .seg{color:var(--violet);font-size:.92rem;font-weight:600;letter-spacing:.04em}
+.tl-item p{color:var(--muted);font-size:.97rem;margin-top:10px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tl-tags span{font-size:.78rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(230,0,126,.09);color:#fff}
+
+.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:38px}
+.bar{margin-bottom:20px}
+.bar .top{display:flex;justify-content:space-between;font-size:.93rem;margin-bottom:8px}
+.bar .top i{font-style:normal;color:var(--muted);font-size:.85rem}
+.bar .track{height:8px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar .fill{height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{font-size:.86rem;padding:9px 15px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:.25s;cursor:default}
+.chip:hover{background:var(--grad);border-color:transparent;transform:translateY(-2px)}
+
+.ugc{background:linear-gradient(180deg,rgba(230,0,126,.09),transparent 60%);border-radius:32px;border:1px solid var(--line);padding:52px 40px}
+.ugc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.ugc-card{border-radius:20px;padding:26px;border:1px solid var(--line);background:rgba(11,8,16,.55);transition:.35s}
+.ugc-card:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--pink)}
+.ugc-card .k{font-family:'Sora';font-weight:800;font-size:1.5rem;color:var(--pink)}
+.ugc-card h4{margin:10px 0 8px;font-size:1.05rem}
+.ugc-card p{color:var(--muted);font-size:.92rem}
+
+/* notícias */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.news{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:var(--card);transition:.35s;min-height:180px}
+.news:hover{transform:translateY(-6px);border-color:var(--pink);background:rgba(230,0,126,.07)}
+.news .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(230,0,126,.3),rgba(123,47,247,.3));overflow:hidden}
+.news .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.news .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news .date{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);font-weight:700}
+.news h4{font-size:1.02rem;line-height:1.35}
+.news p{color:var(--muted);font-size:.88rem}
+.news .more{margin-top:auto;font-size:.83rem;color:var(--violet);font-weight:600;padding-top:10px}
+.news-state{border:1px dashed var(--line);border-radius:20px;padding:34px;text-align:center;color:var(--muted);grid-column:1/-1}
+.spinner{width:26px;height:26px;border-radius:50%;border:3px solid rgba(255,255,255,.15);border-top-color:var(--pink);
+  animation:spin .8s linear infinite;margin:0 auto 14px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.news-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px;
+  font-size:.83rem;color:var(--muted)}
+.news-foot button{background:rgba(255,255,255,.06);border:1px solid var(--line);color:var(--text);
+  padding:9px 18px;border-radius:999px;font:inherit;font-size:.83rem;cursor:pointer;transition:.25s}
+.news-foot button:hover{background:var(--grad);border-color:transparent}
+
+.contact{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:64px 34px}
+.contact h2{font-size:clamp(1.9rem,4.6vw,3.1rem);font-weight:800}
+.contact p{color:var(--muted);max-width:56ch;margin:16px auto 30px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.87rem}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .portrait{max-width:320px}
+  .stats{grid-template-columns:1fr 1fr}
+  .two-col,.skill-grid{grid-template-columns:1fr}
+  .ugc-grid{grid-template-columns:1fr}
+  .ugc{padding:38px 24px}
+  nav .brand{display:none}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="glow a"></div><div class="glow b"></div><div class="glow c"></div>
+<div class="grain"></div>
+
+<nav>
+  <div class="brand"><span>Bira Martins</span></div>
+  <div class="nav-links">
+    <a class="nl" href="#sobre">Sobre</a>
+    <a class="nl" href="#trajetoria">Trajetória</a>
+    <a class="nl" href="#skills">Competências</a>
+    <a class="nl" href="#ugc">Criador / UGC</a>
+    <a class="nl" href="#noticias">Notícias</a>
+    <a class="nl" href="#contato">Contato</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="tagpill"><span class="dot"></span>Curitiba · PR — Híbrido / Remoto</span>
+        <h1>Ubiratan <span class="grad-text">Martins Junior</span></h1>
+        <p class="role">Gerente de <span class="grad-text">Performance &amp; CRM</span> na indústria</p>
+        <p class="lead">Mais de 8 anos transformando dados, mídia e relacionamento em crescimento previsível. Do branding ao funil completo: performance paga, inbound, automação de CRM e planejamento de comunicação — em operações B2B e B2C dentro da indústria.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contato">Vamos conversar →</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/ubiratan-martins-junior-2a240414a/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://www.instagram.com/queenbiroska/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+
+      <!-- ► FOTO: basta manter o arquivo "foto.jpg" nesta mesma pasta -->
+      <div class="portrait">
+        <div class="inner">
+          <img id="foto" src="foto.jpg" alt="Ubiratan Martins Junior">
+          <div class="fallback" id="fotoFallback" hidden>
+            <div class="initials grad-text">UM</div>
+            <div class="sub">Performance · CRM · Conteúdo</div>
+          </div>
+          <span class="badge">Bira Martins</span>
+        </div>
+      </div>
+    </div>
+    <div class="marquee"><div class="track" id="mq"></div></div>
+  </div>
+</header>
+
+<main>
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Sobre</p>
+      <h2>Marketing que <span class="grad-text">performa</span> e relacionamento que <span class="grad-text">retém</span>.</h2>
+      <p>Atuo como Gerente de Performance e CRM na indústria, liderando aquisição paga, ciclo de vida do cliente e comunicação de marca. Minha trajetória começou na produção audiovisual e em mídias sociais, passou por agência e pelo mercado de tecnologia — o que me deu uma leitura rara: eu entendo o dado, mas também sei construir a peça, a narrativa e o conteúdo que fazem o dado acontecer.</p>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="n" data-count="8" data-suffix="+">0</div><div class="l">anos de marketing</div></div>
+      <div class="stat"><div class="n" data-count="5" data-suffix="">0</div><div class="l">empresas na bagagem</div></div>
+      <div class="stat"><div class="n" data-count="360" data-suffix="º">0</div><div class="l">visão de funil completo</div></div>
+      <div class="stat"><div class="n" data-count="437" data-suffix="+">0</div><div class="l">conteúdos autorais publicados</div></div>
+    </div>
+    <div class="two-col reveal" style="margin-top:24px">
+      <div class="card"><div class="ic">📈</div><h3>Performance</h3><p>Gestão de mídia paga (Google Ads, Meta), estruturação de campanhas, tracking, análise de funil e otimização contínua de CAC, ROAS e conversão.</p></div>
+      <div class="card"><div class="ic">🔁</div><h3>CRM &amp; Ciclo de Vida</h3><p>Segmentação de base, réguas de relacionamento, automação, nutrição e reativação — transformando compradores pontuais em receita recorrente.</p></div>
+      <div class="card"><div class="ic">✦</div><h3>Branding &amp; Comunicação</h3><p>Posicionamento, identidade, comunicação interna e planejamento integrado de marketing para marcas com múltiplos públicos.</p></div>
+      <div class="card"><div class="ic">🎬</div><h3>Conteúdo &amp; Criação</h3><p>Da estratégia editorial à execução: roteiro, gravação, edição, design em Photoshop e Illustrator e produção para redes sociais.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Trajetória</p>
+      <h2>Onde eu <span class="grad-text">construí</span> cada habilidade.</h2>
+      <p>Uma linha do tempo por empresa — do estúdio de vídeo à gestão de performance na indústria.</p>
+    </div>
+    <div class="timeline reveal">
+
+      <div class="tl-item now">
+        <p class="when">2023 — Atual · 3 anos</p>
+        <h3>Kapazi</h3>
+        <p class="seg">Indústria · Curitiba/PR · Híbrido</p>
+        <p><b>Onde eu lidero performance e CRM.</b> Comando a estratégia de aquisição paga e o ciclo de vida do cliente de uma operação industrial: estruturação de campanhas, geração de demanda, segmentação e automação da base, réguas de relacionamento e leitura de resultados para as áreas comercial e de marketing. Também respondo pela comunicação de marca e pelo planejamento integrado.</p>
+        <div class="tl-tags"><span>Gestão de Performance</span><span>CRM &amp; Automação</span><span>Mídia Paga</span><span>Geração de Demanda</span><span>Branding</span><span>Planejamento</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="when">2021 — 2023 · 2 anos</p>
+        <h3>Grupo WMBR</h3>
+        <p class="seg">Tecnologia · B2B (WebmaniaBR) + B2C (Hermy)</p>
+        <p><b>Onde eu aprendi a operar dois públicos ao mesmo tempo.</b> Conduzi as frentes B2B e B2C simultaneamente, com mensagens, funis e métricas distintos para cada negócio — Google Ads, estratégia de marketing, inbound e comunicação interna rodando em paralelo.</p>
+        <div class="tl-tags"><span>B2B + B2C</span><span>Google Ads</span><span>Estratégia de Marketing</span><span>Inbound</span><span>Comunicação Interna</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="when">2019 — 2023 · 4 anos</p>
+        <h3>WebmaniaBR®</h3>
+        <p class="seg">SaaS / Tecnologia B2B</p>
+        <p><b>Onde eu virei um profissional de aquisição.</b> Quatro anos de marketing digital em produto SaaS: performance, conteúdo, funil de aquisição e construção de marca em um mercado técnico e altamente competitivo.</p>
+        <div class="tl-tags"><span>Marketing Digital</span><span>Aquisição</span><span>SaaS</span><span>Estratégia de Conteúdo</span><span>Branding</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="when">2018 — 2019</p>
+        <h3>LivingFor Marketing</h3>
+        <p class="seg">Agência · Mídias Sociais</p>
+        <p><b>Onde eu construí a base de social media.</b> Planejamento de pauta, criação e gestão de comunidades no ritmo de agência — múltiplas marcas, múltiplos tons de voz, prazo curto.</p>
+        <div class="tl-tags"><span>Mídias Sociais</span><span>Planejamento Editorial</span><span>Gestão de Comunidade</span></div>
+      </div>
+
+      <div class="tl-item">
+        <p class="when">2016 — 2018 · 2 anos</p>
+        <h3>Curso Luiz Carlos</h3>
+        <p class="seg">Produção Audiovisual · Curitiba/PR</p>
+        <p><b>Onde tudo começou.</b> Captação, edição e finalização de vídeo — a base técnica e narrativa que até hoje sustenta minha produção de conteúdo e a direção criativa das campanhas.</p>
+        <div class="tl-tags"><span>Gravação</span><span>Edição de Vídeo</span><span>Direção Criativa</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Competências</p>
+      <h2>O que eu <span class="grad-text">domino</span>.</h2>
+      <p>Competências validadas por recomendações no LinkedIn e por prática diária em operações reais.</p>
+    </div>
+    <div class="skill-grid reveal">
+      <div>
+        <div class="bar"><div class="top"><b>Performance &amp; Mídia Paga (Google Ads)</b><i>95%</i></div><div class="track"><div class="fill" data-w="95"></div></div></div>
+        <div class="bar"><div class="top"><b>CRM &amp; Automação de Relacionamento</b><i>92%</i></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+        <div class="bar"><div class="top"><b>Estratégia de Marketing &amp; Planejamento</b><i>93%</i></div><div class="track"><div class="fill" data-w="93"></div></div></div>
+        <div class="bar"><div class="top"><b>Inbound &amp; Marketing de Atração</b><i>90%</i></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+        <div class="bar"><div class="top"><b>Branding &amp; Posicionamento</b><i>88%</i></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+        <div class="bar"><div class="top"><b>Estratégia de Conteúdo &amp; Social</b><i>94%</i></div><div class="track"><div class="fill" data-w="94"></div></div></div>
+        <div class="bar"><div class="top"><b>Design (Photoshop / Illustrator)</b><i>82%</i></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Ferramentas &amp; territórios</h3>
+          <p>Um conjunto de competências que atravessa dado, mídia, marca e criação.</p>
+          <div class="chips">
+            <span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">Publicidade no Instagram</span>
+            <span class="chip">CRM</span><span class="chip">Automação de marketing</span><span class="chip">Marketing digital</span>
+            <span class="chip">Marketing de atração</span><span class="chip">Inbound</span><span class="chip">Branding</span>
+            <span class="chip">Estratégia de conteúdo</span><span class="chip">Mídias sociais</span><span class="chip">Comunicação interna</span>
+            <span class="chip">Estratégia de marketing</span><span class="chip">Adobe Photoshop</span><span class="chip">Adobe Illustrator</span>
+            <span class="chip">Edição de vídeo</span><span class="chip">B2B</span><span class="chip">B2C</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ugc">
+  <div class="wrap">
+    <div class="ugc reveal">
+      <p class="eyebrow">Criador de conteúdo · UGC</p>
+      <h2 style="font-size:clamp(1.9rem,4.2vw,3rem);font-weight:800;margin:12px 0 14px">Do outro lado da <span class="grad-text">campanha</span>.</h2>
+      <p style="color:var(--muted);max-width:72ch">Como <b style="color:var(--text)">@queenbiroska</b>, mantenho de forma autônoma um trabalho autoral de criação de conteúdo e UGC — cultura pop, música, shows, lifestyle e recomendações de produto. É uma operação inicial, mas real: eu pauto, roteirizo, gravo, edito, publico e leio as métricas. Ter vivido o lado do criador me tornou um gestor melhor: entendo o que faz uma marca soar autêntica no feed, não apenas eficiente na planilha.</p>
+      <div class="ugc-grid">
+        <div class="ugc-card"><div class="k">437+</div><h4>Publicações autorais</h4><p>Feed, reels e stories produzidos e editados por mim, com identidade visual própria.</p></div>
+        <div class="ugc-card"><div class="k">2,1 mil</div><h4>Comunidade engajada</h4><p>Audiência construída organicamente em torno de música pop, shows e cultura.</p></div>
+        <div class="ugc-card"><div class="k">UGC</div><h4>Parcerias com marcas</h4><p>Conteúdos de recomendação e review em formato nativo, com link e cupom próprios.</p></div>
+      </div>
+      <div class="cta-row" style="margin-top:30px">
+        <a class="btn primary" href="https://www.instagram.com/queenbiroska/" target="_blank" rel="noopener">Ver o perfil de criador</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="noticias">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Radar de cultura pop</p>
+      <h2>As <span class="grad-text">5 últimas</span> de Fama.</h2>
+      <p>Quem trabalha com conteúdo precisa estar dentro da conversa. Feed ao vivo de Notícias ao Minuto — Fama.</p>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <div class="news-state"><div class="spinner"></div>Carregando as últimas notícias…</div>
+    </div>
+    <div class="news-foot">
+      <span>Fonte: <a href="https://www.noticiasaominuto.com.br/fama" target="_blank" rel="noopener" style="color:var(--violet);font-weight:600">Notícias ao Minuto — Fama</a> · <span id="newsStamp">—</span></span>
+      <button id="newsReload">Atualizar feed</button>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <div class="contact reveal">
+      <p class="eyebrow">Contato</p>
+      <h2>Bora construir <span class="grad-text">performance</span> juntos?</h2>
+      <p>Aberto a conversas sobre performance, CRM, marketing industrial e parcerias de conteúdo. Curitiba/PR — híbrido ou remoto.</p>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn primary" href="mailto:ujuniormartins95@gmail.com">ujuniormartins95@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ubiratan-martins-junior-2a240414a/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://www.instagram.com/queenbiroska/" target="_blank" rel="noopener">@queenbiroska</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+  <span>© <span id="yr"></span> Ubiratan Martins Junior — Gerente de Performance &amp; CRM</span>
+  <span>Curitiba · Paraná · Brasil</span>
+</div></footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* foto com fallback elegante */
+(function(){
+  const img = document.getElementById('foto'), fb = document.getElementById('fotoFallback');
+  img.addEventListener('error', ()=>{ img.style.display='none'; fb.hidden=false; });
+})();
+
+/* marquee */
+(function(){
+  const items = ['Performance','CRM','Branding','Inbound Marketing','Google Ads','Estratégia de Conteúdo','Mídias Sociais','UGC','Indústria','B2B & B2C'];
+  const html = items.map(i=>`<span><b>◆</b> ${i}</span>`).join('');
+  document.getElementById('mq').innerHTML = html + html;
+})();
+
+/* scroll progress + nav ativa */
+const prog = document.getElementById('progress');
+const links = [...document.querySelectorAll('nav a.nl')];
+const secs = links.map(l=>document.querySelector(l.getAttribute('href')));
+function onScroll(){
+  const h = document.documentElement;
+  prog.style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  let idx = -1;
+  secs.forEach((s,i)=>{ if(s && s.getBoundingClientRect().top <= 160) idx = i; });
+  links.forEach((l,i)=>l.classList.toggle('active', i===idx));
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* reveal */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);
+    e.target.querySelectorAll('.fill').forEach(f=>setTimeout(()=>f.style.width=f.dataset.w+'%',180));
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+  }});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+function countUp(el){
+  const target = +el.dataset.count, suf = el.dataset.suffix || '';
+  const dur = 1400, t0 = performance.now();
+  (function step(t){
+    const p = Math.min((t-t0)/dur,1), eased = 1-Math.pow(1-p,3);
+    el.textContent = Math.round(target*eased) + (p===1?suf:'');
+    if(p<1) requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ---------------- FEED RSS — 5 últimas de Fama ---------------- */
+const FEED = 'https://www.noticiasaominuto.com.br/rss/fama';
+const PROXIES = [
+  u => u,
+  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+  u => 'https://corsproxy.io/?' + encodeURIComponent(u),
+  u => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u)
+];
+
+async function loadNews(){
+  const grid = document.getElementById('newsGrid');
+  grid.innerHTML = '<div class="news-state"><div class="spinner"></div>Carregando as últimas notícias…</div>';
+  let xml = null;
+  for(const p of PROXIES){
+    try{
+      const r = await fetch(p(FEED), {cache:'no-store'});
+      if(!r.ok) continue;
+      const t = await r.text();
+      if(t && t.indexOf('<item') > -1){ xml = t; break; }
+    }catch(e){ /* tenta o próximo */ }
+  }
+  if(!xml){
+    grid.innerHTML = '<div class="news-state">Não foi possível carregar o feed agora (bloqueio de CORS ou rede).<br><br>'+
+      '<a class="btn ghost" href="https://www.noticiasaominuto.com.br/fama" target="_blank" rel="noopener">Abrir notícias no site</a></div>';
+    return;
+  }
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const items = [...doc.querySelectorAll('item')].slice(0,5);
+  if(!items.length){ grid.innerHTML = '<div class="news-state">Feed vazio no momento.</div>'; return; }
+
+  grid.innerHTML = items.map(it=>{
+    const g = t => (it.querySelector(t)?.textContent || '').trim();
+    const title = g('title');
+    const link  = g('link') || g('guid');
+    const pub   = g('pubDate');
+    const raw   = g('description');
+    const tmp   = document.createElement('div'); tmp.innerHTML = raw;
+    let desc = (tmp.textContent || '').trim().replace(/\s+/g,' ');
+    if(desc.length > 130) desc = desc.slice(0,130).trim() + '…';
+    let img = it.querySelector('enclosure')?.getAttribute('url')
+           || it.getElementsByTagName('media:content')[0]?.getAttribute('url')
+           || it.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url')
+           || (raw.match(/<img[^>]+src=["']([^"']+)/i)||[])[1] || '';
+    const d = pub ? new Date(pub) : null;
+    const when = d && !isNaN(d) ? d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'})
+                 + ' · ' + d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}) : '';
+    return `<a class="news" href="${link}" target="_blank" rel="noopener">
+      <div class="thumb">${img?`<img src="${img}" alt="" loading="lazy" onerror="this.remove()">`:''}</div>
+      <div class="body">
+        <span class="date">${when}</span>
+        <h4>${title}</h4>
+        ${desc?`<p>${desc}</p>`:''}
+        <span class="more">Ler matéria →</span>
+      </div></a>`;
+  }).join('');
+
+  document.getElementById('newsStamp').textContent =
+    'atualizado às ' + new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+}
+document.getElementById('newsReload').addEventListener('click', loadNews);
+loadNews();
+
+/* fundo animado */
+(function(){
+  const c = document.getElementById('bg-canvas'), x = c.getContext('2d');
+  let w,h,pts;
+  const colors = ['#E6007E','#B15CFF','#0A66C2','#22D3EE'];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function init(){
+    w = c.width = innerWidth; h = c.height = innerHeight;
+    const n = Math.min(90, Math.floor(w*h/18000));
+    pts = Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,
+      vx:(Math.random()-.5)*.35, vy:(Math.random()-.5)*.35,
+      r:Math.random()*1.8+.6, c:colors[(Math.random()*colors.length)|0]}));
+  }
+  function draw(){
+    x.clearRect(0,0,w,h);
+    for(let i=0;i<pts.length;i++){
+      const p = pts[i]; p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w) p.vx*=-1;
+      if(p.y<0||p.y>h) p.vy*=-1;
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fillStyle=p.c; x.globalAlpha=.85; x.fill();
+      for(let j=i+1;j<pts.length;j++){
+        const q=pts[j], dx=p.x-q.x, dy=p.y-q.y, d=Math.hypot(dx,dy);
+        if(d<130){ x.beginPath(); x.moveTo(p.x,p.y); x.lineTo(q.x,q.y);
+          x.strokeStyle=p.c; x.globalAlpha=(1-d/130)*.18; x.lineWidth=1; x.stroke(); }
+      }
+    }
+    x.globalAlpha=1;
+    if(!reduce) requestAnimationFrame(draw);
+  }
+  init(); draw();
+  addEventListener('resize', init);
+})();
+</script>
+</body>
+</html>
